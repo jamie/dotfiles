@@ -1,0 +1,137 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# XDG Base Directory Specification
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+# Set values to defaults
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
+export XDG_CONFIG_DIRS=/etc/XDG_CONFIG_DIRS
+export XDG_CACHE_HOME=$HOME/.cache
+# export XDG_RUNTIME_DIR
+
+# Prezto
+if [[ -s "${ZDOTDIR:-$HOME}/.config/prezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.config/prezto/init.zsh"
+fi
+
+# User configuration
+## Up/Down arrow history search :( :( :(
+# autoload -U up-line-or-beginning-search
+# autoload -U down-line-or-beginning-search
+# zle -N up-line-or-beginning-search
+# zle -N down-line-or-beginning-search
+# bindkey "^[[A" up-line-or-beginning-search # Up
+# bindkey "^[[B" down-line-or-beginning-search # Down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  # Remote
+  export EDITOR='nano'
+  export VISUAL='vim'
+else
+  # Local
+  export EDITOR='code -w'
+  export VISUAL='code'
+fi
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/identity"
+
+# Rails/mac voodoo
+if which sysctl >/dev/null; then
+  export PARALLEL_TEST_PROCESSORS=$(sysctl hw.logicalcpu | awk '{print $2 - 2}')
+fi
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+unsetopt correct
+unsetopt correct_all
+unsetopt AUTO_CD
+
+function command_not_found_handler() {
+    $HOME/bin/command-not-found $*
+}
+
+# Allow chdir to root dirs from anywhere
+export CDPATH=.:~
+
+# Local Bash compat
+if [ -f ~/.bash_profile ]; then
+  source ~/.bash_profile
+fi
+
+# homebrew
+if [ -f ~/homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=~/homebrew
+  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
+elif [ -f /usr/local/Homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=/usr/local/Homebrew
+  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
+fi
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/homebrew/lib/pkgconfig
+
+# asdf
+export ASDF_DIR=$(brew --prefix asdf)/libexec
+export ASDF_PREFIX=~/.asdf
+export PATH=$ASDF_PREFIX/shims:$PATH
+
+# direnv
+eval "$(direnv hook zsh)"
+
+# Path
+# For ./bin or ./.node_modules/bin, use direnv
+# Here, we're explicitly adding homedir/bin to the tail, so we cannot shadow
+export PATH=$PATH:~/bin
+
+# Prompt
+eval "$(starship init zsh)"
+
+alias xmltidy="cat | tidy -xml -iq"
+
+# Shortcut for rbspy on mac
+alias spyruby="sudo --preserve-env rbspy record -- ruby"
+
+# For git, stop paginating if less than a screen
+export LESS="-F -X $LESS"
+# Commit-as-Rubocop shortcut
+alias ruboci='GIT_COMMITTER_NAME=''Jamie Macey'' GIT_COMMITTER_EMAIL=''jamie.macey@versapay.com'' git commit --author ''Rubocop <rubocop@versapay.com>'' -m'
+
+# Git shorthand
+function gci() {
+  git commit -v "$@"
+}
+function gcia() {
+  git commit -va "$@"
+}
+alias gst="git status -sb"
+
+# Auto-set iterm2 tab colours based on pwd
+function tabcolor_chpwd {
+  ~/bin/tabcolor 0.7 0.7
+}
+add-zsh-hook chpwd tabcolor_chpwd
+tabcolor_chpwd
+
+# fzf fuzzy finder
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf-tab/fzf-tab.plugin.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf-tab/fzf-tab.plugin.zsh
