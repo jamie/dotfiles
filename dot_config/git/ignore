@@ -1,0 +1,33 @@
+# Bundler
+.bundle
+bins/
+vendor/bundle
+
+# Debugger
+.byebug_history
+
+# Editor
+.vscode/
+
+# ASDF, local environment
+.direnv
+.envrc
+.tool-versions
+
+# OSX
+.DS_Store
+
+# Production secrets
+config/sftp/*production*
+
+# Cucumber failure screenshots
+screenshot_*
+
+# Stack dumps
+callstack*.html
+
+# Local initializers
+config/initializers/LOCAL*.rb
+
+# Local helpers
+_local/

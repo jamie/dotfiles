@@ -1,0 +1,59 @@
+tap "homebrew/cask-fonts"
+tap "schollz/tap"
+cask_args appdir: "~/Applications"
+
+# Programming
+brew "Arkweid/lefthook/lefthook" # Git hooks
+brew "asdf"
+brew "chezmoi"
+brew "croc" # Point-to-point file transfer, schollz/tap
+brew "direnv"
+brew "fzf"
+brew "git"
+brew "hub"
+brew "rename"
+brew "ripgrep"
+brew "starship" # prompt
+brew "tree"
+# Via homebrew/cask-fonts
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-victor-mono"
+cask "font-victor-mono-nerd-font"
+cask "fork"
+cask "insomnia"
+cask "iterm2"
+cask "p4v" # p4merge
+cask "sequel-pro"
+# cask "virtualbox"
+cask "visual-studio-code"
+
+# Ruby dependencies
+brew "openssl"
+brew "readline"
+
+# Other
+brew "ncdu" # ncurses tree-based disk usage
+cask "1password"
+cask "acorn"
+cask "arq"
+cask "calibre"
+cask "discord"
+cask "firefox"
+cask "flotato" # Webapp wrapper base
+cask "flux"
+cask "iina"
+cask "istat-menus"
+cask "notable"
+cask "plex"
+cask "plexamp"
+cask "transmission"
+cask "transmit"
+
+# Social
+
+# Mac App Store
+mas "Magnet",            id: 441258766
+mas "Monosnap",          id: 540348655
+mas "The Unarchiver",    id: 425424353
+# mas "CleverFiles Cleaner"

@@ -1,0 +1,81 @@
+[user]
+        name = Jamie Macey
+{{- if eq .chezmoi.hostname "jamiemacey" }}
+        email = jamie.macey@versapay.com
+{{- else }}
+        email = jamie.git@tracefunc.com
+{{- end }}
+
+[apply]
+        whitespace = strip
+
+[branch]
+        autosetupmerge = always
+
+[core]
+        editor = /usr/bin/vim
+        excludesfile = ~/.config/git/ignore
+        attributesfile = ~/.config/git/attributes
+        whitespace = trailing-space,space-before-tab
+        autocrlf = input
+
+[push]
+        default = tracking
+
+[diff]
+        renames = copies
+        algorithm = patience
+
+[rerere]
+        enabled = true
+
+[alias]
+        lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%ad%Creset -%C(yellow)%d%Creset %s' --abbrev-commit --date=short
+        lol = log --pretty=oneline --abbrev-commit --graph --decorate
+
+        assume   = update-index --assume-unchanged
+        unassume = update-index --no-assume-unchanged
+        assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+        checokut = checkout
+
+        changed = diff --name-only master...
+        branchcat = "!git branch | cat"
+
+        stage = add
+        unstage = reset HEAD
+
+        manifest = ls-tree --full-tree -r --name-only HEAD
+
+        current-branch = "!git symbolic-ref HEAD 2>/dev/null | awk -F/ '{print $3;}'"
+        bls = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+
+[color]
+        ui = true
+
+[merge]
+        tool = myp4merge
+        verbosity = 1
+[mergetool]
+        keepBackup = false
+        prompt = false
+[mergetool "myp4merge"]
+        cmd = ~/Applications/p4merge.app/Contents/Resources/launchp4merge \
+                "$PWD/$BASE" \
+                "$PWD/$REMOTE" \
+                "$PWD/$LOCAL" \
+                "$PWD/$MERGED"
+        trustExitCode = false
+        keepTemporaries = false
+
+[diff "plist"]
+        textconv = "plutil -convert xml1 -o -"
+
+[filter "lfs"]
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+[pull]
+        rebase = false
+[init]
+        defaultBranch = main
