@@ -1,0 +1,9 @@
+KeepAlive yes
+ServerAliveInterval 60
+
+Host *
+  AddKeysToAgent yes
+{{- if eq .chezmoi.os "darwin"}}
+  UseKeychain yes
+  IdentityFile ~/.ssh/identity
+{{- end }}
