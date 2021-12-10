@@ -5,12 +5,21 @@ BUNDLE_BUILD__FFI: "--with-ldflags=-L$HOMEBREW_PREFIX/opt/libffi/lib --with-pkg_
 # BUNDLE_BUILD__GPGME: "--use-system-libraries"
 BUNDLE_BUILD__GPGME: "--with-gpgme-dir=$HOMEBREW_PREFIX/opt/gpgme"
 BUNDLE_BUILD__LIBV8: "--with-system-v8"
+{{- if eq .chezmoi.hostname "jamiemacey" }}
 BUNDLE_BUILD__LIBXML-RUBY: "--with-xml2-dir=$HOMEBREW_PREFIX/opt/libxml2"
+{{- else }}
+BUNDLE_BUILD__LIBXML___RUBY: "--with-xml2-dir=$HOMEBREW_PREFIX/opt/libxml2"
+{{- end }}
 BUNDLE_BUILD__MYSQL2: "--with-ldflags=-L$HOMEBREW_PREFIX/opt/openssl/lib"
 BUNDLE_BUILD__NOKOGIRI: "--with-xml2-dir=$HOMEBREW_PREFIX/opt/libxml2"
+BUNDLE_BUILD__THERUBYRACER: "--with-v8-dir=$HOMEBREW_PREFIX/opt/v8@3.15"
+{{- if eq .chezmoi.hostname "jamiemacey" }}
 BUNDLE_BUILD__RUBY-FILEMAGIC: "--with-magic-dir=$HOMEBREW_PREFIX/opt/libmagic"
 BUNDLE_BUILD__RUBY-ODBC: "--with-odbc-dir=$HOMEBREW_PREFIX/opt/unixodbc/"
-BUNDLE_BUILD__THERUBYRACER: "--with-v8-dir=$HOMEBREW_PREFIX/opt/v8@3.15"
+{{- else }}
+BUNDLE_BUILD__RUBY___FILEMAGIC: "--with-magic-dir=$HOMEBREW_PREFIX/opt/libmagic"
+BUNDLE_BUILD__RUBY___ODBC: "--with-odbc-dir=$HOMEBREW_PREFIX/opt/unixodbc/"
+{{- end }}
 {{- end }}
 BUNDLE_PATH: "vendor/bundle"
 BUNDLE_JOBS: "4"
