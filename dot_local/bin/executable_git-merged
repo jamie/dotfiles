@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+### List local branches merged into master
+### Call with --rm to delete the branches
+
+KEEP = %w(master staging production qa demo next implementation-fb maintenance-20)
+
+source = 'master'
+source = ARGV[0] if ARGV[0] =~ /^[a-zA-Z0-9]+/
+source = `git-current-branch`.chomp if ARGV[0] == 'HEAD'
+
+branches = `git branch`.split("\n")
+
+branches.map!{|e| e.match(/[^* ]+/)[0] }
+
+# ignore important branches
+branches.reject!{|r| KEEP.include? r }
+
+branches.each do |branch|
+  next if branch == source
+  if `git cherry -v origin/#{source} #{branch}`.empty?
+    puts branch
+    if ARGV.include?('--rm')
+      `git branch -d #{branch}`
+    end
+  end
+end
+
+# Purge remote dead branches from local refs
+puts `git remote prune origin`

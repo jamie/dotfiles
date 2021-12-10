@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+ref = `git symbolic-ref HEAD`.chomp
+branch = ARGV.pop || `git-current-branch`.chomp
+remote = ARGV.pop || "origin"
+
+`git config branch.#{branch}.remote #{remote}`
+`git config branch.#{branch}.merge #{ref}`

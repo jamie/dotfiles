@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $# -eq 1 ]; then
+  # Use provided target
+  TARGET=$1
+else
+  git cherry -v HEAD origin/`git-current-branch` &>/dev/null
+  if [ $? -eq 0 ]; then
+    # use current remote branch
+    TARGET=origin/`git-current-branch`
+  else
+    # default to master if remote branch does not exist
+    TARGET=master
+  fi
+fi
+
+git cherry -v HEAD $TARGET 2>/dev/null

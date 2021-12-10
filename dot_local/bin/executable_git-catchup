@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $(git diff --stat) != '' ]]; then
+  git stash save
+  git fetch upstream
+  git merge upstream/$(git-current-branch) --ff-only
+  git push
+  git stash pop
+else
+  git fetch upstream
+  git merge upstream/$(git-current-branch) --ff-only
+  git push
+fi

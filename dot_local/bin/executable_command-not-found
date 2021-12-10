@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+command = ARGV.first
+
+def run(cmd)
+  $stderr.puts "Running #{cmd.inspect} instead"
+  system(cmd)
+  exit $?.exitstatus
+end
+
+case
+# Paste git repo url to clone it
+when command =~ /^git(@|:\/\/).*\.git$/
+  run("git clone #{command.inspect}")
+
+# paste compressed url to download+extract it
+when command =~ /^(?:ftp|https?):\/\/.+\.t(?:ar\.)?gz$/
+  run("curl #{command.inspect} | tar xzv")
+
+# run locally-installed command
+when File.exist?("./tmp/isolate/ruby-1.8/bin/#{command}")
+  run("rake isolate:sh['#{ARGV.join(' ')}']")
+when File.exist?("./.bundle/config") && (File.exist?("./bin/#{command}") || File.exist?("./bins/#{command}"))
+  run("bundle exec #{ARGV.join(' ')}")
+
+else
+  puts "Command not found: #{command}"
+  exit 127
+end

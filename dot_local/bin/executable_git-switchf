@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+# Sort recently-checked-out objects by last access,
+# pop them open in fzf to select one,
+# and then git-switch to the selected branch.
+
+# TODO: See if I can get something like this working,
+#       to preview + complete the branch, but preview w/ time reference
+#  awk -F' ~ HEAD@{' '{printf("  \033[33m%s: \033[37m %s\033[0m\n", substr($2, 1, length($2)-1), $1)}'
+#  fzf-tmux --preview-window right:60% --preview "echo {} | awk -F':  ' '{printf(\$2)}' | xargs git show --color=always | head -"$LINES |
+#  awk -F':  ' '{printf($2)}' |
+
+
+git reflog show --pretty=format:'%gs ~ %gd' --date=relative |
+  grep 'checkout:' |
+  grep -oE '[^ ]+ ~ .*' |
+  awk -F~ '!seen[$1]++' |
+  awk -F' ~ HEAD@{' '{printf("%s\n", $1)}' |
+  fzf-tmux --preview-window right:60% --preview 'git show --color=always {} | head -'$LINES |
+  xargs git switch

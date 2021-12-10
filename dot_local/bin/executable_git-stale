@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+### List remote branches not locally checked out, which are behind master
+
+branches = `git branch -a`.split("\n")
+
+remotes = branches.select{|e| e =~ %r(remotes/origin) && e !~ /HEAD/}
+remotes.map!{|e| e.match(%r(origin/(.*)))[1] }
+
+locals = branches.select{|e| e !~ %r(/) }
+locals.map!{|e| e.match(/[^* ]+/)[0] }
+
+# ignore locally active branches
+remotes.reject!{|r| locals.any?{|l| r == l }}
+
+remotes.each do |branch|
+  if `git cherry -v origin/master origin/#{branch}`.empty?
+    puts branch
+  end
+end
+

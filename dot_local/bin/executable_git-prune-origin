@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+### Deletes remote branches which have been fully merged into master
+### Call with --check to list remote branches that would be deleted
+
+KEEP = %w(master staging production qa demo).freeze
+
+# first, remove local branches that have been removed upstream
+`git remote prune origin`
+
+branches = `git branch -a`.split("\n")
+
+remotes = branches.select { |e| e =~ %r{remotes/origin} && e !~ /HEAD/ }
+remotes.map! { |e| e.match(%r{origin/(.*)})[1] }
+
+locals = branches.select { |e| e !~ %r{/} }
+locals.map! { |e| e.match(/[^* ]+/)[0] }
+
+# ignore locally active branches
+remotes.reject! { |r| locals.include? r }
+# ignore important branches
+remotes.reject! { |r| KEEP.include? r }
+remotes.reject! { |r| r =~ /^maintenance/ }
+remotes.reject! { |r| r =~ /fb$/ }
+
+remotes.each do |branch|
+  next unless `git cherry -v origin/master origin/#{branch}`.empty?
+  if ARGV.include? '--check'
+    puts branch
+  else
+    `git push origin :#{branch}`
+  end
+end

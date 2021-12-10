@@ -101,9 +101,8 @@ eval "$(direnv hook zsh)"
 
 # Path
 # For ./bin or ./.node_modules/bin, use direnv
-# Here, we're explicitly adding homedir/bin to the tail, so we cannot shadow
-# TODO: Consider .local/bin instead, suggested by XDG
-export PATH=$PATH:~/bin
+# Here, we're explicitly adding XDG .local/bin to the tail, so we cannot shadow
+export PATH=$PATH:~/.local/bin
 
 # Prompt
 eval "$(starship init zsh)"
@@ -129,7 +128,7 @@ alias gst="git status -sb"
 
 # Auto-set iterm2 tab colours based on pwd
 function tabcolor_chpwd {
-  ~/bin/tabcolor 0.7 0.7
+  ~/.local/bin/tabcolor 0.7 0.7
 }
 add-zsh-hook chpwd tabcolor_chpwd
 tabcolor_chpwd
