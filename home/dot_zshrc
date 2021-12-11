@@ -69,7 +69,7 @@ unsetopt correct_all
 unsetopt AUTO_CD
 
 function command_not_found_handler() {
-    $HOME/bin/command-not-found $*
+    $HOME/.local/bin/command-not-found $*
 }
 
 # Allow chdir to root dirs from anywhere
