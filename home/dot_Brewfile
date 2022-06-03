@@ -24,7 +24,6 @@ cask "fork"
 cask "insomnia"
 cask "iterm2"
 cask "p4v" # p4merge
-cask "sequel-pro"
 # cask "virtualbox"
 cask "visual-studio-code"
 
@@ -41,7 +40,6 @@ cask "calibre"
 cask "discord"
 cask "firefox"
 cask "flotato" # Webapp wrapper base
-cask "flux"
 cask "iina"
 cask "istat-menus"
 cask "notable"
