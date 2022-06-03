@@ -17,3 +17,9 @@ MacOS initial setup depends on developer tools being installed, just run `git` f
 Thanks to some sources of inspiration:
 - [oh my zsh](https://github.com/ohmyzsh/ohmyzsh/)
 - [Thoughtbot dotfiles](https://github.com/thoughtbot/dotfiles)
+
+## TODO
+
+- Synthesize remaining config/runscripts from https://gitlab.com/jamie_ca/dotfiles
+- Read over Thoughtbot for more additions
+- Look at https://github.com/thoughtbot/laptop/ for some additional thoughts for run_once_ scripts
