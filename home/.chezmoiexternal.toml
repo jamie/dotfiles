@@ -1,0 +1,21 @@
+# NB: 168h refreshes at most once/week
+[".config/fzf-tab"]
+  type = "git-repo"
+  refreshPeriod = "168h"
+  url = "https://github.com/Aloxaf/fzf-tab.git"
+[".config/prezto"]
+  type = "git-repo"
+  refreshPeriod = "168h"
+  url = "https://github.com/sorin-ionescu/prezto.git"
+[".config/prezto-contrib"]
+  type = "git-repo"
+  refreshPeriod = "168h"
+  url = "https://github.com/belak/prezto-contrib.git"
+[".config/prezto-extra/fzf"]
+  type = "git-repo"
+  refreshPeriod = "168h"
+  url = "https://github.com/gpanders/fzf-prezto.git"
+[".vim/bundle/vim-color-schemes"]
+  type = "git-repo"
+  refreshPeriod = "168h"
+  url = "https://github.com/rodnaph/vim-color-schemes.git"

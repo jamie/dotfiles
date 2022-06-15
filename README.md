@@ -28,6 +28,5 @@ Thanks to some sources of inspiration:
 
 ## TODO
 
-- Synthesize remaining config/runscripts from https://gitlab.com/jamie_ca/dotfiles
 - Read over Thoughtbot for more additions
 - Look at https://github.com/thoughtbot/laptop/ for some additional thoughts for run_once_ scripts
