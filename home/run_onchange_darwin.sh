@@ -16,6 +16,10 @@ if [ "$(uname -s)" = "Darwin" ]; then
   # TextEdit
   defaults write com.apple.TextEdit "RichText" -bool "false"
 
+  # iTerm2
+  # Disables resizing to whole character widths only
+  defaults write com.googlecode.iterm2 DisableWindowSizeSnap -integer 1
+
   ### Homebrew
 
   # install homebrew if it's missing
