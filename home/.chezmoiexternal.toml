@@ -7,10 +7,18 @@
   type = "git-repo"
   refreshPeriod = "168h"
   url = "https://github.com/sorin-ionescu/prezto.git"
+  [".config/prezto".clone]
+    args = ["--recurse-submodules"]
+  [".config/prezto".pull]
+    args = ["--recurse-submodules"]
 [".config/prezto-contrib"]
   type = "git-repo"
   refreshPeriod = "168h"
   url = "https://github.com/belak/prezto-contrib.git"
+  [".config/prezto-contrib".clone]
+    args = ["--recurse-submodules"]
+  [".config/prezto-contrib".pull]
+    args = ["--recurse-submodules"]
 [".config/prezto-extra/fzf"]
   type = "git-repo"
   refreshPeriod = "168h"
