@@ -1,16 +1,17 @@
 tap "homebrew/cask-fonts"
-tap "schollz/tap"
+# tap "schollz/tap"
 cask_args appdir: "~/Applications"
 
 # Programming
-brew "Arkweid/lefthook/lefthook" # Git hooks
 brew "asdf"
 brew "chezmoi"
 brew "croc" # Point-to-point file transfer, schollz/tap
 brew "direnv"
 brew "fzf"
 brew "git"
+brew "gpg"
 brew "hub"
+brew "lefthook" # Git hooks
 brew "rename"
 brew "ripgrep"
 brew "starship" # prompt
@@ -35,9 +36,8 @@ brew "readline"
 brew "ncdu" # ncurses tree-based disk usage
 cask "1password"
 cask "acorn"
-cask "arq"
+# cask "arq" # Needs admin to install helpers, TODO: move separately
 cask "calibre"
-cask "discord"
 cask "firefox"
 cask "flotato" # Webapp wrapper base
 cask "iina"
@@ -45,13 +45,14 @@ cask "istat-menus"
 cask "notable"
 cask "plex"
 cask "plexamp"
+cask "rectangle" # Replacement for Magnet
+cask "the-unarchiver"
 cask "transmission"
 cask "transmit"
 
 # Social
+cask "discord"
 
 # Mac App Store
-mas "Magnet",            id: 441258766
-mas "Monosnap",          id: 540348655
-mas "The Unarchiver",    id: 425424353
+# mas "Monosnap",          id: 540348655
 # mas "CleverFiles Cleaner"
