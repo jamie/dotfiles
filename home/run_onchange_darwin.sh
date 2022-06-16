@@ -2,6 +2,8 @@
 
 # MacOS-specific setup
 if [ "$(uname -s)" = "Darwin" ]; then
+  echo "$ run_onchange_darwin.sh"
+
   ### System settings, see https://macos-defaults.com/ for more
 
   # Dock
@@ -19,6 +21,9 @@ if [ "$(uname -s)" = "Darwin" ]; then
   # iTerm2
   # Disables resizing to whole character widths only
   defaults write com.googlecode.iterm2 DisableWindowSizeSnap -integer 1
+
+  # SSH
+  ssh-add -K ~/.ssh.identity
 
   ### Homebrew
 

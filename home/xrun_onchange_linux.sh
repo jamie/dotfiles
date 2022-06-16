@@ -5,6 +5,8 @@ exit 0
 
 # Linux-specific setup
 if [ "$(uname -s)" = "Linux" ]; then
+  echo "$ run_onchange_linux.sh"
+
   ## ZSH
   if ! command -v zsh >/dev/null 2>&1; then
     echo "Bootstrapping zsh..."
@@ -12,6 +14,9 @@ if [ "$(uname -s)" = "Linux" ]; then
     chsh -s `which zsh`
     echo "Log out and in to enable zsh"
   fi
+
+  ## SSH
+  ssh-add ~/.ssh/identity
 
   ## Commandline Tools
 
