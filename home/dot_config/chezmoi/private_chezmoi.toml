@@ -1,3 +1,6 @@
 encryption = "gpg"
+[edit]
+    command = "code"
+    args = ["--wait"]
 [gpg]
     symmetric = true
