@@ -24,7 +24,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   defaults write com.googlecode.iterm2 DisableWindowSizeSnap -integer 1
 
   # SSH
-  ssh-add -K ~/.ssh/identity
+  ssh-add --apple-use-keychain ~/.ssh/identity
 
   ### Homebrew
 
