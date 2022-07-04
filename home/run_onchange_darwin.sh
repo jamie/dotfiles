@@ -8,6 +8,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 
   # Dock
   defaults write com.apple.dock "orientation" -string "left"
+  defaults write com.apple.dock "tilesize" -int "50"
   killall Dock
 
   # Finder
