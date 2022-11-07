@@ -10,6 +10,7 @@ brew "direnv"
 brew "fzf"
 brew "git"
 brew "gpg"
+brew "hivemind"
 brew "hub"
 brew "lefthook" # Git hooks
 brew "rename"
