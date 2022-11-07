@@ -15,6 +15,7 @@ brew "lefthook" # Git hooks
 brew "rename"
 brew "ripgrep"
 brew "starship" # prompt
+brew "tmux"
 brew "tree"
 # Via homebrew/cask-fonts
 cask "font-fira-code"
