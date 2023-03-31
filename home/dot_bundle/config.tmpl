@@ -14,7 +14,6 @@ BUNDLE_BUILD__LIBXML___RUBY: "--with-xml2-dir=$HOMEBREW_PREFIX/opt/libxml2"
 {{- end }}
 BUNDLE_BUILD__MYSQL2: "--with-ldflags=-L$HOMEBREW_PREFIX/opt/openssl/lib"
 BUNDLE_BUILD__NOKOGIRI: "--with-xml2-dir=$HOMEBREW_PREFIX/opt/libxml2"
-BUNDLE_BUILD__PG: "--with-pg-dir=$HOMEBREW_PREFIX/opt/postgresql@14"
 {{- if eq .chezmoi.hostname "jamiemacey" }}
 BUNDLE_BUILD__RUBY-FILEMAGIC: "--with-magic-dir=$HOMEBREW_PREFIX/opt/libmagic"
 BUNDLE_BUILD__RUBY-ODBC: "--with-odbc-dir=$HOMEBREW_PREFIX/opt/unixodbc/"
