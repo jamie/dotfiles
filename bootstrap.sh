@@ -3,16 +3,16 @@ set -e # -e: exit on error
 
 ## Bootstrap script for Github Codespaces,
 ## which checks the repo out to ~/dotfiles.
-## Interactive installs should use `sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply jamie`
+## Interactive installs should use `sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply jamie`
 
 ## Install chezmoi binary locally
 if [ ! "$(command -v chezmoi)" ]; then
   bin_dir="$HOME/.local/bin"
   chezmoi="$bin_dir/chezmoi"
   if [ "$(command -v curl)" ]; then
-    sh -c "$(curl -fsLS https://git.io/chezmoi)" -- -b "$bin_dir"
+    sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- -b "$bin_dir"
   elif [ "$(command -v wget)" ]; then
-    sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$bin_dir"
+    sh -c "$(wget -qO- get.chezmoi.io/lb)" -- -b "$bin_dir"
   else
     echo "To install chezmoi, you must have curl or wget installed." >&2
     exit 1
