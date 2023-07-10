@@ -4,6 +4,14 @@ require 'rubygems'
 ActiveRecord::Base.logger.level = 1 if defined?(ActiveRecord)
 IRB.conf[:SAVE_HISTORY] = 1000
 
+# Clipboard interaction
+def pbcopy(data)
+  IO.popen("pbcopy", "w") { |io| io.write(data) }
+end
+def pbpaste
+  `pbpaste`
+end
+
 # Overriding Object class
 class Object
   # Easily print methods local to an object's class
