@@ -8,6 +8,8 @@ vendor/bundle
 
 # Editor
 .vscode/
+.nova/
+.idea/
 
 # ASDF, local environment
 .direnv

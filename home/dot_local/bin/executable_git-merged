@@ -3,7 +3,7 @@
 ### List local branches merged into master
 ### Call with --rm to delete the branches
 
-KEEP = %w(master staging production qa demo next implementation-fb maintenance-20)
+KEEP = %w(master staging production qa demo next)
 
 source = 'master'
 source = ARGV[0] if ARGV[0] =~ /^[a-zA-Z0-9]+/

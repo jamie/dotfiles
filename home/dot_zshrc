@@ -111,6 +111,7 @@ alias xmltidy="cat | tidy -xml -iq"
 
 # Shortcut for rbspy on mac
 alias spyruby="sudo --preserve-env rbspy record -- ruby"
+alias cuke="bundle exec cucumber --format=pretty"
 
 # For git, stop paginating if less than a screen
 export LESS="-F -X $LESS"
