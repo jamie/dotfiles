@@ -41,8 +41,9 @@ cask "acorn"
 # cask "arq" # Needs admin to install helpers, TODO: move separately
 cask "calibre"
 cask "firefox"
-cask "flotato" # Webapp wrapper base
+cask "handbrake"
 cask "iina"
+cask "insomnia"
 cask "istat-menus"
 cask "notable"
 cask "plex"
@@ -56,5 +57,4 @@ cask "transmit"
 cask "discord"
 
 # Mac App Store
-# mas "Monosnap",          id: 540348655
 # mas "CleverFiles Cleaner"

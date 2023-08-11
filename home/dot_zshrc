@@ -141,5 +141,6 @@ tabcolor_chpwd
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf-tab/fzf-tab.plugin.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf-tab/fzf-tab.plugin.zsh
 
-source /Users/jamie/.docker/init-zsh.sh || true # Added by Docker Desktop
-source /Users/jamiemacey/.docker/init-zsh.sh || true # Added by Docker Desktop
+if [ -f ~/.docker/init-zsh.sh ]; then
+  source ~/.docker/init-zsh.sh || true # Added by Docker Desktop
+fi
