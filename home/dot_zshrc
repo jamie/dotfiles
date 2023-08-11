@@ -87,6 +87,9 @@ if [ -f ~/homebrew/bin/brew ]; then
 elif [ -f /usr/local/Homebrew/bin/brew ]; then
   export HOMEBREW_PREFIX=/usr/local/Homebrew
   export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
+elif [ -f /opt/homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=/opt/homebrew
+  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
 fi
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/homebrew/lib/pkgconfig
