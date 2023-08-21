@@ -1,17 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=/usr/local/bin:$PATH
 
-# XDG Base Directory Specification
-# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-# Set values to defaults for Version 0.8
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_STATE_HOME=$HOME/.local/state
-export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
-export XDG_CONFIG_DIRS=/etc/xdg
-export XDG_CACHE_HOME=$HOME/.cache
-# export XDG_RUNTIME_DIR
-
 # Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.config/prezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.config/prezto/init.zsh"
@@ -29,26 +18,6 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  # Remote
-  export EDITOR='nano'
-  export VISUAL='vim'
-else
-  # Local
-  export EDITOR='code -w'
-  export VISUAL='code'
-fi
-
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/identity"
 
 # Rails/mac voodoo
 if which sysctl >/dev/null; then
@@ -72,35 +41,11 @@ function command_not_found_handler() {
     $HOME/.local/bin/command-not-found $*
 }
 
-# Allow chdir to root dirs from anywhere
-export CDPATH=.:~
 
 # Local Bash compat
 if [ -f ~/.bash_profile ]; then
   source ~/.bash_profile
 fi
-
-# homebrew
-if [ -f ~/homebrew/bin/brew ]; then
-  export HOMEBREW_PREFIX=~/homebrew
-  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
-elif [ -f /usr/local/Homebrew/bin/brew ]; then
-  export HOMEBREW_PREFIX=/usr/local/Homebrew
-  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
-elif [ -f /opt/homebrew/bin/brew ]; then
-  export HOMEBREW_PREFIX=/opt/homebrew
-  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
-fi
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/homebrew/lib/pkgconfig
-
-# asdf
-export ASDF_DIR=$(brew --prefix asdf)/libexec
-export ASDF_PREFIX=~/.asdf
-export PATH=$ASDF_PREFIX/shims:$PATH
-
-# direnv
-eval "$(direnv hook zsh)"
 
 # Path
 # For ./bin or ./.node_modules/bin, use direnv
