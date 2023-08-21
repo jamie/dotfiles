@@ -23,6 +23,8 @@
   type = "git-repo"
   refreshPeriod = "168h"
   url = "https://github.com/gpanders/fzf-prezto.git"
+  [".config/prezto-extra/fzf".clone]
+    args = ["--recurse-submodules"]
   [".config/prezto-extra/fzf".pull]
     args = ["--recurse-submodules"]
 [".vim/bundle/vim-color-schemes"]
