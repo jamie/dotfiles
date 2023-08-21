@@ -1,9 +1,8 @@
-#
-# Executes commands at login pre-zshrc.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# .zprofile -- loaded at login, early
+# Environment variables and commands which _don't_ need to be updated frequently
+# eg. tool configuration, longer-running dependent configs
+# `exec zsh --login` will re-run this file
+# Probably XDG, ZDOTDIR handling should move here?
 
 #
 # Browser

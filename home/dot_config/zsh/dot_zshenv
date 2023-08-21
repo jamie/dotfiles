@@ -1,4 +1,6 @@
-# .zshenv - Zsh environment file, loaded always
+# .zshenv -- loaded every zsh
+# Environment variables which need to be updated frequently
+# eg. path, aliases, dependent items
 
 export ZDOTDIR=$HOME/.config/zsh
 

@@ -1,3 +1,7 @@
+# .zshrc -- loaded for interactive shells
+# Items for interactive use
+# eg. prompt, completions, suggestions, coloring, aliases, keybinds, history...
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=/usr/local/bin:$PATH
 

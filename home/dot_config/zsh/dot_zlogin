@@ -1,9 +1,5 @@
-#
-# Executes commands at login post-zshrc.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# .zlogin -- loaded at login, after .zshrc
+# External commands which don't modify shell behaviours
 
 # Execute code that does not affect the current session in the background.
 {
