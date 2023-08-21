@@ -1,9 +1,6 @@
-#
-# Defines environment variables.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# .zshenv - Zsh environment file, loaded always
+
+export ZDOTDIR=~/.config/zsh
 
 # XDG Base Directory Specification
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
