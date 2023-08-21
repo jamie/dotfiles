@@ -18,6 +18,7 @@ brew "ripgrep"
 brew "starship" # prompt
 brew "tmux"
 brew "tree"
+cask "dash"
 # Via homebrew/cask-fonts
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
@@ -27,8 +28,11 @@ cask "fork"
 cask "insomnia"
 cask "iterm2"
 cask "p4v" # p4merge
+cask "utm" # virtual machine host
 # cask "virtualbox"
 cask "visual-studio-code"
+cask "warp"
+cask "zed"
 
 # Ruby dependencies
 brew "openssl"
@@ -43,8 +47,8 @@ cask "calibre"
 cask "firefox"
 cask "handbrake"
 cask "iina"
-cask "insomnia"
 cask "istat-menus"
+cask "modern-csv"
 cask "notable"
 cask "plex"
 cask "plexamp"
