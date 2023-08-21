@@ -2,8 +2,8 @@
 # export PATH=/usr/local/bin:$PATH
 
 # Prezto
-if [[ -s "${ZDOTDIR:-$HOME}/.config/prezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.config/prezto/init.zsh"
+if [[ -s "$XDG_CONFIG_HOME/prezto/init.zsh" ]]; then
+  source "$XDG_CONFIG_HOME/prezto/init.zsh"
 fi
 
 # User configuration
