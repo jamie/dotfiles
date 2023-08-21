@@ -1,8 +1,6 @@
 # .zshenv - Zsh environment file, loaded always
 
 export ZDOTDIR=$HOME/.config/zsh
-# Preserve history file
-if [ -f $HOME/.zsh_history ]; then mv $HOME/.zsh_history $ZDOTDIR/.zsh_history; fi
 
 # XDG Base Directory Specification
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
@@ -14,6 +12,14 @@ export XDG_STATE_HOME=$HOME/.local/state
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 export XDG_CONFIG_DIRS=/etc/xdg
 export XDG_RUNTIME_DIR=~/.xdg
+
+# Migrate zsh files to XDG, TODO: purge this block once I've migrated all systems
+# Preserve history file
+if [ -f $HOME/.zsh_history ]; then mv $HOME/.zsh_history $ZDOTDIR/.zsh_history; fi
+# Remove old copies of files now templated in ZDOTDIR
+for file in zlogin zpreztorc zprofile zshrc; do
+  if [ -f $HOME/.$file ]; then rm $HOME/.$file; fi
+done
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU fpath path cdpath
