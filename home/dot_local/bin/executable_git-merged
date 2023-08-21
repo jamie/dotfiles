@@ -3,7 +3,7 @@
 ### List local branches merged into master
 ### Call with --rm to delete the branches
 
-KEEP = %w(master staging production qa demo next)
+KEEP = %w(master staging production qa demo next archive/)
 
 source = 'master'
 source = ARGV[0] if ARGV[0] =~ /^[a-zA-Z0-9]+/
@@ -14,7 +14,9 @@ branches = `git branch`.split("\n")
 branches.map!{|e| e.match(/[^* ]+/)[0] }
 
 # ignore important branches
-branches.reject!{|r| KEEP.include? r }
+branches.reject!{|branch|
+  KEEP.any? { |keeper| branch.start_with?(keeper) }
+}
 
 branches.each do |branch|
   next if branch == source
