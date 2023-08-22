@@ -15,85 +15,12 @@ export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 export XDG_CONFIG_DIRS=/etc/xdg
 export XDG_RUNTIME_DIR=~/.xdg
 
-# Migrate zsh files to XDG, TODO: purge this block once I've migrated all systems
-# Preserve history file
-if [ -f $HOME/.zsh_history ]; then mv $HOME/.zsh_history $ZDOTDIR/.zsh_history; fi
-# Remove old copies of files now templated in ZDOTDIR
-for file in zlogin zpreztorc zprofile zshrc; do
-  if [ -f $HOME/.$file ]; then rm $HOME/.$file; fi
-done
-
-# Ensure path arrays do not contain duplicates.
-typeset -gU fpath path cdpath
-
 # Allow chdir to root dirs from anywhere
 export CDPATH=.:~
 
-# TODO: Adapt this example into more robust path handling
-# Set the list of directories that Zsh searches for programs.
-# path=(
-#   # core
-#   $HOME/{,s}bin(N)
-#   /opt/{homebrew,local}/{,s}bin(N)
-#   /usr/local/{,s}bin(N)
-#
-#   # emacs
-#   $HOME/.emacs.d/bin(N)
-#   $XDG_CONFIG_HOME/emacs/bin(N)
-#
-#   # apps
-#   /{usr/local,opt/homebrew}/opt/curl/bin(N)
-#   /{usr/local,opt/homebrew}/opt/go/libexec/bin(N)
-#   /{usr/local,opt/homebrew}/share/npm/bin(N)
-#   /{usr/local,opt/homebrew}/opt/ruby/bin(N)
-#   /{usr/local,opt/homebrew}/lib/ruby/gems/*/bin(N)
-#   $HOME/.gem/ruby/*/bin(N)
-#
-#   # path
-#   $path
-# )
-
-# Regional settings
-export LANG='en_CA.UTF-8'
-
-### App-specific configs
-
-# OS integration
-if [[ -n $SSH_CONNECTION ]]; then
-  # Remote
-  export EDITOR='nano'
-  export VISUAL='vim'
-  export PAGER=less
-else
-  # Local
-  export EDITOR='code -w'
-  export VISUAL='code'
-  export PAGER=less
-fi
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
-
-# homebrew
-if [ -f ~/homebrew/bin/brew ]; then
-  export HOMEBREW_PREFIX=~/homebrew
-  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
-elif [ -f /usr/local/Homebrew/bin/brew ]; then
-  export HOMEBREW_PREFIX=/usr/local/Homebrew
-  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
-elif [ -f /opt/homebrew/bin/brew ]; then
-  export HOMEBREW_PREFIX=/opt/homebrew
-  export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
-fi
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/homebrew/lib/pkgconfig
-
-# asdf-vm
-if [[ $HOMEBREW_PREFIX ]]; then
-    export ASDF_DIR=$(brew --prefix asdf)/libexec
-    export ASDF_PREFIX=~/.asdf
-    export PATH=$ASDF_PREFIX/shims:$PATH
-fi
+# NOTE: Avoiding writing `path` or `PATH` here, I have a work
+#       machine that annoyingly forces a path via /etc/zprofile
+#       so instead I'm managing paths in my .zprofile.
 
 # direnv
 if [ -x "$(which direnv)" ]; then

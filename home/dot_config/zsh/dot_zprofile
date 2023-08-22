@@ -4,33 +4,49 @@
 # `exec zsh --login` will re-run this file
 # Probably XDG, ZDOTDIR handling should move here?
 
-#
-# Browser
-#
-
+## Mac Browser
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-#
-# Editors
-#
-
-export EDITOR='nano'
-export VISUAL='nano'
+## Editors
 export PAGER='less'
-
-#
-# Language
-#
-
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
+if [[ -n $SSH_CONNECTION ]]; then
+  # Remote
+  export EDITOR='nano'
+  export VISUAL='vim'
+  export PAGER='less'
+else
+  # Local
+  export EDITOR='code -w'
+  export VISUAL='code'
+  export PAGER='less'
 fi
 
-#
-# Paths
-#
+## Language
+if [[ -z "$LANG" ]]; then
+  export LANG='en_CA.UTF-8'
+fi
+
+## Paths
+
+# homebrew
+if [ -f ~/homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=~/homebrew
+elif [ -f /usr/local/Homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=/usr/local/Homebrew
+elif [ -f /opt/homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=/opt/homebrew
+fi
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOMEBREW_PREFIX/lib/pkgconfig
+
+# asdf-vm
+if [[ $HOMEBREW_PREFIX ]]; then
+    export ASDF_DIR=$($HOMEBREW_PREFIX/bin/brew --prefix asdf)/libexec
+    # TODO: export ASDF_PREFIX=$XDG_DATA_HOME/asdf
+    export ASDF_PREFIX=$HOME/.asdf
+fi
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
@@ -41,15 +57,20 @@ typeset -gU cdpath fpath mailpath path
 # )
 
 # Set the list of directories that Zsh searches for programs.
+# Suffix (N) will skip adding the path if it does not exist.
 path=(
-  /usr/local/{bin,sbin}
+  # Force higher priority
+  $HOMEBREW_PREFIX/{,s}bin(N)
+  $ASDF_PREFIX/shims(N)
+  /usr/local/{,s}bin(N)
+
   $path
+
+  # XDG Local bin added last, preventing shadowing
+  $HOME/.local/bin
 )
 
-#
-# Less
-#
-
+## Less
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
