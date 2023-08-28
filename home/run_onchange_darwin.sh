@@ -23,6 +23,11 @@ if [ "$(uname -s)" = "Darwin" ]; then
   # Disables resizing to whole character widths only
   defaults write com.googlecode.iterm2 DisableWindowSizeSnap -integer 1
 
+  # Game Controller
+  # Disable PS4 controller menu button launching "Games" folder,
+  # as well as Steam wanting to jump to foreground.
+  defaults write com.apple.GameController bluetoothPrefsMenuLongPressAction -integer 0
+
   # SSH
   ssh-add --apple-use-keychain ~/.ssh/identity
 
