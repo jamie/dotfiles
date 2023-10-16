@@ -88,3 +88,8 @@ tabcolor_chpwd
 if [ -f ~/.docker/init-zsh.sh ]; then
   source ~/.docker/init-zsh.sh || true # Added by Docker Desktop
 fi
+
+# direnv
+if [ -x "$(which direnv)" ]; then
+  eval "$(direnv hook zsh)"
+fi

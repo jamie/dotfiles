@@ -22,10 +22,5 @@ export CDPATH=.:~
 #       machine that annoyingly forces a path via /etc/zprofile
 #       so instead I'm managing paths in my .zprofile.
 
-# direnv
-if [ -x "$(which direnv)" ]; then
-  eval "$(direnv hook zsh)"
-fi
-
 # ssh
 export SSH_KEY_PATH="~/.ssh/identity"
