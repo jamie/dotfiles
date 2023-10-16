@@ -1,10 +1,6 @@
 [user]
         name = Jamie Macey
-{{- if eq .chezmoi.hostname "Jamie-Macey-M1" }}
-        email = jamie.macey@versapay.com
-{{- else }}
         email = jamie.git@tracefunc.com
-{{- end }}
 
 [apply]
         whitespace = strip
@@ -79,3 +75,9 @@
         rebase = false
 [init]
         defaultBranch = main
+
+# Project overrides
+[includeIf "hasconfig:remote.*.url:git@github.com:versapay/**"]
+	path = ~/.config/git/versapay
+[includeIf "hasconfig:remote.*.url:git@github.com:versapay-old/**"]
+	path = ~/.config/git/versapay
