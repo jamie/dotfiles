@@ -73,11 +73,15 @@
         required = true
 [pull]
         rebase = false
+
+[rebase]
+        updateRefs = true
+
 [init]
         defaultBranch = main
 
 # Project overrides
 [includeIf "hasconfig:remote.*.url:git@github.com:versapay/**"]
-	path = ~/.config/git/versapay
+        path = ~/.config/git/versapay
 [includeIf "hasconfig:remote.*.url:git@github.com:versapay-old/**"]
-	path = ~/.config/git/versapay
+        path = ~/.config/git/versapay

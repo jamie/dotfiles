@@ -81,6 +81,13 @@ function tabcolor_chpwd {
 add-zsh-hook chpwd tabcolor_chpwd
 tabcolor_chpwd
 
+# Auto-set tabby/iterm2 tab names based on pwd
+function tabname_chpwd {
+  echo -en "\033]0;${PWD/#$HOME/~}\a"
+}
+add-zsh-hook chpwd tabname_chpwd
+tabname_chpwd
+
 # fzf fuzzy finder
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf-tab/fzf-tab.plugin.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf-tab/fzf-tab.plugin.zsh
