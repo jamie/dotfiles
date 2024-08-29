@@ -3,9 +3,9 @@ tap "homebrew/cask-fonts"
 cask_args appdir: "~/Applications"
 
 # Programming
-brew "asdf"
 brew "chezmoi"
 brew "croc" # Point-to-point file transfer, schollz/tap
+brew "difftastic"
 brew "direnv"
 brew "fzf"
 brew "git"
@@ -13,6 +13,7 @@ brew "gpg"
 brew "hivemind"
 brew "hub"
 brew "lefthook" # Git hooks
+brew "mise"
 brew "rename"
 brew "ripgrep"
 brew "starship" # prompt

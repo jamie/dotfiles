@@ -11,10 +11,11 @@ vendor/bundle
 .nova/
 .idea/
 
-# ASDF, local environment
+# mise, local environment
 .direnv
 .envrc
 .tool-versions
+.mise.toml
 
 # OSX
 .DS_Store

@@ -41,13 +41,6 @@ fi
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOMEBREW_PREFIX/lib/pkgconfig
 
-# asdf-vm
-if [[ $HOMEBREW_PREFIX ]]; then
-    export ASDF_DIR=$($HOMEBREW_PREFIX/bin/brew --prefix asdf)/libexec
-    # TODO: export ASDF_PREFIX=$XDG_DATA_HOME/asdf
-    export ASDF_PREFIX=$HOME/.asdf
-fi
-
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -61,7 +54,6 @@ typeset -gU cdpath fpath mailpath path
 path=(
   # Force higher priority
   $HOMEBREW_PREFIX/{,s}bin(N)
-  $ASDF_PREFIX/shims(N)
   /usr/local/{,s}bin(N)
 
   $path

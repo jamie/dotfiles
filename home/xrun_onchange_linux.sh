@@ -26,11 +26,9 @@ if [ "$(uname -s)" = "Linux" ]; then
   # Generic rails dependencies, with redundancy
   sudo apt install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn
 
-  echo "> Installing asdf"
-  if ! command -v asdf >/dev/null 2>&1; then
-    echo "> Installing asdf to homedir"
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
-    . "$HOME/.asdf/asdf.sh"
+  echo "> Installing mise"
+  if ! command -v mise >/dev/null 2>&1; then
+    sudo apt install -y mise
   fi
 
   ## Desktop tools

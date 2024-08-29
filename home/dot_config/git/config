@@ -21,11 +21,14 @@
 [diff]
         renames = copies
         algorithm = patience
+        tool = difftastic
 
 [rerere]
         enabled = true
 
 [alias]
+        dft = difftool
+
         lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%ad%Creset -%C(yellow)%d%Creset %s' --abbrev-commit --date=short
         lol = log --pretty=oneline --abbrev-commit --graph --decorate
 
@@ -65,6 +68,12 @@
 
 [diff "plist"]
         textconv = "plutil -convert xml1 -o -"
+
+[difftool]
+        prompt = false
+
+[difftool "difftastic"]
+        cmd = difft --display inline "$LOCAL" "$REMOTE"
 
 [filter "lfs"]
         clean = git-lfs clean -- %f
