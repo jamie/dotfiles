@@ -40,6 +40,7 @@ fi
 unsetopt correct
 unsetopt correct_all
 unsetopt AUTO_CD
+setopt nonomatch # Handle rake task[argument] without needing to quote it
 
 function command_not_found_handler() {
     $HOME/.local/bin/command-not-found $*
