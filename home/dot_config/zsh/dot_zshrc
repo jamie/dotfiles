@@ -89,6 +89,14 @@ function tabname_chpwd {
 add-zsh-hook chpwd tabname_chpwd
 tabname_chpwd
 
+# Shell colors, WIP?
+# https://dt.iki.fi/base16-previews
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        source "$BASE16_SHELL/profile_helper.sh"
+base16_edge-light
+
 # fzf fuzzy finder
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf-tab/fzf-tab.plugin.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf-tab/fzf-tab.plugin.zsh

@@ -1,33 +1,42 @@
 # NB: 168h refreshes at most once/week
+[".config/base16-shell"]
+type = "git-repo"
+refreshPeriod = "168h"
+url = "https://github.com/chriskempson/base16-shell.git"
+
 [".config/fzf-tab"]
-  type = "git-repo"
-  refreshPeriod = "168h"
-  url = "https://github.com/Aloxaf/fzf-tab.git"
+type = "git-repo"
+refreshPeriod = "168h"
+url = "https://github.com/Aloxaf/fzf-tab.git"
+
 [".config/prezto"]
-  type = "git-repo"
-  refreshPeriod = "168h"
-  url = "https://github.com/sorin-ionescu/prezto.git"
-  [".config/prezto".clone]
-    args = ["--recurse-submodules"]
-  [".config/prezto".pull]
-    args = ["--recurse-submodules"]
+type = "git-repo"
+refreshPeriod = "168h"
+url = "https://github.com/sorin-ionescu/prezto.git"
+[".config/prezto".clone]
+args = ["--recurse-submodules"]
+[".config/prezto".pull]
+args = ["--recurse-submodules"]
+
 [".config/prezto-contrib"]
-  type = "git-repo"
-  refreshPeriod = "168h"
-  url = "https://github.com/belak/prezto-contrib.git"
-  [".config/prezto-contrib".clone]
-    args = ["--recurse-submodules"]
-  [".config/prezto-contrib".pull]
-    args = ["--recurse-submodules"]
+type = "git-repo"
+refreshPeriod = "168h"
+url = "https://github.com/belak/prezto-contrib.git"
+[".config/prezto-contrib".clone]
+args = ["--recurse-submodules"]
+[".config/prezto-contrib".pull]
+args = ["--recurse-submodules"]
+
 [".config/prezto-extra/fzf"]
-  type = "git-repo"
-  refreshPeriod = "168h"
-  url = "https://github.com/gpanders/fzf-prezto.git"
-  [".config/prezto-extra/fzf".clone]
-    args = ["--recurse-submodules"]
-  [".config/prezto-extra/fzf".pull]
-    args = ["--recurse-submodules"]
+type = "git-repo"
+refreshPeriod = "168h"
+url = "https://github.com/gpanders/fzf-prezto.git"
+[".config/prezto-extra/fzf".clone]
+args = ["--recurse-submodules"]
+[".config/prezto-extra/fzf".pull]
+args = ["--recurse-submodules"]
+
 [".vim/bundle/vim-color-schemes"]
-  type = "git-repo"
-  refreshPeriod = "168h"
-  url = "https://github.com/rodnaph/vim-color-schemes.git"
+type = "git-repo"
+refreshPeriod = "168h"
+url = "https://github.com/rodnaph/vim-color-schemes.git"
