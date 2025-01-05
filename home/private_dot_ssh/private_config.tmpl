@@ -11,3 +11,8 @@ Host *
   UseKeychain yes
   IdentityFile ~/.ssh/identity
 {{- end }}
+
+Host mycloudex2ultra.local
+  HostName mycloudex2ultra.local
+  User sshd
+  SetEnv TERM=xterm-256color
