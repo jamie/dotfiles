@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#MISE dir="{{cwd}}"
+
+
+# [env]
+# BUNDLE_BIN = './.direnv/bin'
+# GEM_HOME = './.direnv/ruby'
+mise config set env.BUNDLE_BIN './.direnv/bin'
+mise config set env.GEM_HOME './.direnv/ruby'
+
+# [env._]
+# path = [
+#   "{{env.GEM_HOME}}/bin",
+#   "{{env.BUNDLE_BIN}}"
+# ]
+mise config set env._.path --type list "{{env.GEM_HOME}}/bin","{{env.BUNDLE_BIN}}"
