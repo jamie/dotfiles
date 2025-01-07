@@ -15,7 +15,7 @@ vendor/bundle
 .direnv
 .envrc
 .tool-versions
-.mise.toml
+mise.local.toml
 
 # OSX
 .DS_Store
