@@ -42,11 +42,4 @@ if [ "$(uname -s)" = "Darwin" ]; then
     #       Alas the installscript hardcodes there, so need to figure out a
     #       recovery plan to manually install to ~/.homebrew instead.
   fi
-
-  # ... assuming brew has installed, either in this script or externally
-  if [ -x "$(command -v brew)" ]; then
-    # Use ~/.Brewfile (home/dot_Brewfile from this repo) to install packages
-    brew bundle --global
-  fi
-
 fi
