@@ -3,14 +3,15 @@
 # MacOS-specific setup
 if [ "$(uname -s)" = "Darwin" ]; then
   ### System settings, see https://macos-defaults.com/ for more
+  # Commented out options are ones that don't seem to work.
 
   # General Preferences
-  defaults write com.apple.swipescrolldirection -bool "false"
+  # defaults write com.apple.swipescrolldirection -bool "false"
 
   # Dock/Menubar
   defaults write com.apple.dock "orientation" -string "left"
   defaults write com.apple.dock "tilesize" -int "50"
-  defaults write com.apple.menuextra.battery "ShowPercent" "YES"
+  # defaults write com.apple.menuextra.battery "ShowPercent" "YES"
   killall Dock
 
   # Finder
