@@ -1,5 +1,3 @@
-tap "homebrew/cask-fonts"
-# tap "schollz/tap"
 cask_args appdir: "~/Applications"
 
 # Programming
