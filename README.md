@@ -3,7 +3,7 @@ My dotfiles, managed via [chezmoi](https://www.chezmoi.io)
 Bootstrap with:
 
 ```
-sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply jamie
+s\h -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply jamie --keep-going
 ```
 
 This will install chezmoi, download these dotfiles, apply them to the local environment, and run any scripts in this folder prefixed with `run_` alphabetically.
