@@ -1,38 +1,7 @@
 #!/bin/bash
 
-# MacOS-specific setup
+# Bootstrap requires install homebrew on MacOS
 if [ "$(uname -s)" = "Darwin" ]; then
-  echo "$ run_onchange_darwin.sh"
-
-  ### System settings, see https://macos-defaults.com/ for more
-
-  # Dock
-  defaults write com.apple.dock "orientation" -string "left"
-  defaults write com.apple.dock "tilesize" -int "50"
-  killall Dock
-
-  # Finder
-  defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
-  defaults write com.apple.Finder "AppleShowAllFiles" -bool "true"
-  killall Finder
-
-  # TextEdit
-  defaults write com.apple.TextEdit "RichText" -bool "false"
-
-  # iTerm2
-  # Disables resizing to whole character widths only
-  defaults write com.googlecode.iterm2 DisableWindowSizeSnap -integer 1
-
-  # Game Controller
-  # Disable PS4 controller menu button launching "Games" folder,
-  # as well as Steam wanting to jump to foreground.
-  defaults write com.apple.GameController bluetoothPrefsMenuLongPressAction -integer 0
-
-  # SSH
-  ssh-add --apple-use-keychain ~/.ssh/identity
-
-  ### Homebrew
-
   # install homebrew if it's missing
   if ! [ -x "$(command -v brew)" ]; then
     echo "> Installing Homebrew..."
