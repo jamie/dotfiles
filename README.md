@@ -2,11 +2,19 @@ My dotfiles, managed via [chezmoi](https://www.chezmoi.io)
 
 Bootstrap with:
 
-```
-s\h -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply jamie --keep-going
+```sh
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply jamie --keep-going
 ```
 
-This will install chezmoi, download these dotfiles, apply them to the local environment, and run any scripts in this folder prefixed with `run_` alphabetically.
+`--keep-going` will let chezmoi do what it can, continuing in the face of errors.
+After it runs its first pass, open a fresh shell, and finish with a further:
+
+```sh
+chezmoi apply
+```
+
+This will install chezmoi, download these dotfiles, apply them to the local environment, and run any bootstrap scripts.
+Reminder that bootstrap scripts run alphabetically alongside dotfiles, so run_bar will happen before dot_foo is copied over.
 
 ## Mac Notes
 
