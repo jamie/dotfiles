@@ -23,8 +23,8 @@ cask "font-fira-code-nerd-font"
 cask "font-victor-mono"
 cask "font-victor-mono-nerd-font"
 cask "fork"
+cask "ghostty"
 cask "insomnia"
-cask "iterm2"
 cask "p4v" # p4merge
 cask "utm" # virtual machine host
 # cask "virtualbox"
@@ -32,12 +32,12 @@ cask "visual-studio-code"
 cask "warp"
 cask "zed"
 
-# Ruby dependencies
+# Common Ruby dependencies
 brew "openssl"
 brew "readline"
 
 # Other
-# brew "ncdu" # ncurses tree-based disk usage
+brew "ncdu" # ncurses tree-based disk usage
 cask "1password"
 cask "acorn"
 # cask "arq" # Needs admin to install helpers, TODO: move separately
@@ -47,7 +47,7 @@ cask "handbrake"
 cask "iina"
 cask "istat-menus"
 cask "modern-csv"
-cask "notable"
+cask "obsidian"
 cask "plex"
 cask "plexamp"
 cask "rectangle" # Replacement for Magnet
