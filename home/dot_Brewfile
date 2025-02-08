@@ -8,7 +8,7 @@ brew "fzf"
 brew "git"
 brew "gpg"
 brew "hivemind"
-brew "hub"
+brew "gh"
 brew "lefthook" # Git hooks
 brew "mise"
 brew "rename"
