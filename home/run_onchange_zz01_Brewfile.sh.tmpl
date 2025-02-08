@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "brew bundle --global"
+# Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+
+if [ -f $HOMEBREW_PREFIX/bin/brew ]; then
+  echo
+  # noop, HOMEBREW_PREFIX already set
+elif [ -f ~/homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=~/homebrew
+elif [ -f /usr/local/Homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=/usr/local/Homebrew
+elif [ -f /opt/homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=/opt/homebrew
+fi
+
+# ... assuming brew has installed, either in this script or externally
+if [ -f $HOMEBREW_PREFIX/bin/brew ]; then
+  # Use ~/.Brewfile (home/dot_Brewfile from this repo) to install packages
+  $HOMEBREW_PREFIX/bin/brew bundle --global
+fi
