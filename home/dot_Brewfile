@@ -33,6 +33,7 @@ cask "warp"
 cask "zed"
 
 # Common Ruby dependencies
+brew "libyaml"
 brew "openssl"
 brew "readline"
 
