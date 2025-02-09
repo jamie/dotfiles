@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Copy from direnv, eg `layout ruby`, but instead set up local mise config.
+# https://github.com/direnv/direnv/blob/bbffa7241bd215f0f48db550ebac9e755a60838b/stdlib.sh
+
+if [ "$1" == "ruby" ]; then
+  # BUNDLE_BIN=$(direnv_layout_dir)/bin
+  # GEM_HOME=$(direnv_layout_dir)/ruby
+
+  # export BUNDLE_BIN
+  # export GEM_HOME
+
+  # PATH_add "$GEM_HOME/bin"
+  # PATH_add "$BUNDLE_BIN"
+
+  touch mise.local.toml
+  mise config set --file mise.local.toml env.BUNDLE_BIN `pwd`/.mise/bin
+  mise config set --file mise.local.toml env.GEM_HOME `pwd`/.mise/ruby
+  mise config set --file mise.local.toml --type list env._.path '{{env.GEM_HOME}}/bin','{{env.BUNDLE_BIN}}'
+else
+  echo "Unsupported layout"
+  exit 1
+fi
