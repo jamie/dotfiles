@@ -52,6 +52,7 @@ cask "obsidian"
 cask "plex"
 cask "plexamp"
 cask "rectangle" # Replacement for Magnet
+cask "tailscale"
 cask "the-unarchiver"
 cask "transmission"
 cask "transmit"
