@@ -13,6 +13,7 @@ vendor/bundle
 
 # mise, local environment
 .direnv
+.mise
 .envrc
 .tool-versions
 mise.local.toml
