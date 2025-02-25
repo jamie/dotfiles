@@ -1,12 +1,11 @@
-[user]
-        name = Jamie Macey
-        email = jamie.git@tracefunc.com
-
-# Some of these sourced from
-# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+# Full docs: https://git-scm.com/docs/git-config
+# Some of these sourced from https://blog.gitbutler.com/how-git-core-devs-configure-git/
 
 ## Core Configuration
 
+[user]
+        name = Jamie Macey
+        email = jamie.git@tracefunc.com
 [column]
         ui = auto
 [branch]
@@ -23,6 +22,23 @@
         autocrlf = input
 [color]
         ui = true
+[color "diff"]
+        # Tweaks colors slightly, removes bold
+        # See defaults around https://github.com/git/git/blob/master/diff.c#L81
+        meta = 11
+        frag = magenta
+        old = red
+        new = green
+        commit = yellow
+        whitespace = red reverse
+        func = 146
+        oldMoved = magenta
+        newMoved = cyan
+[color "diff-highlight"]
+        oldNormal = red bold
+        oldHighlight = red bold 52
+        newNormal = green bold
+        newHighlight = green bold 22
 
 ## Shortcuts
 
@@ -113,6 +129,8 @@
         smudge = git-lfs smudge -- %f
         process = git-lfs filter-process
         required = true
+[gpg]
+        format = ssh
 
 ## Work-related stuff
 
