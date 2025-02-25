@@ -2,29 +2,29 @@
         name = Jamie Macey
         email = jamie.git@tracefunc.com
 
-[apply]
-        whitespace = strip
+# Some of these sourced from
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
 
+## Core Configuration
+
+[column]
+        ui = auto
 [branch]
-        autosetupmerge = always
-
+        sort = -committerdate # committerdate
+[tag]
+        sort = version:refname
+[init]
+        defaultBranch = main
+[help]
+        autocorrect = prompt
 [core]
         editor = /usr/bin/vim
-        excludesfile = ~/.config/git/ignore
-        attributesfile = ~/.config/git/attributes
         whitespace = trailing-space,space-before-tab
         autocrlf = input
+[color]
+        ui = true
 
-[push]
-        default = tracking
-
-[diff]
-        renames = copies
-        algorithm = patience
-        tool = difftastic
-
-[rerere]
-        enabled = true
+## Shortcuts
 
 [alias]
         dft = difftool
@@ -48,10 +48,43 @@
         current-branch = "!git symbolic-ref HEAD 2>/dev/null | awk -F/ '{print $3;}'"
         bls = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
 
-[color]
-        ui = true
+## Edits, Commits
 
+[apply]
+        whitespace = strip
+[commit]
+        verbose = true
+
+## Branches, Push/Pull
+[branch]
+        autosetupmerge = always
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+[pull]
+        rebase = false
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+
+## Diff/Merge/Rebase
+
+[diff]
+        algorithm = histogram
+        colorMoved = plain # true
+        mnemonicPrefix = true
+        renames = copies
+        tool = difftastic
+[diff "plist"]
+        textconv = "plutil -convert xml1 -o -"
+[difftool]
+        prompt = false
+[difftool "difftastic"]
+        cmd = difft --display inline "$LOCAL" "$REMOTE"
 [merge]
+        conflictstyle = zdiff3
         tool = myp4merge
         verbosity = 1
 [mergetool]
@@ -65,29 +98,23 @@
                 "$PWD/$MERGED"
         trustExitCode = false
         keepTemporaries = false
+[rebase]
+        autoSquash = true
+        autoStash = true
+        updateRefs = true
+[rerere]
+        enabled = true
+        autoupdate = true
 
-[diff "plist"]
-        textconv = "plutil -convert xml1 -o -"
-
-[difftool]
-        prompt = false
-
-[difftool "difftastic"]
-        cmd = difft --display inline "$LOCAL" "$REMOTE"
+## Misc
 
 [filter "lfs"]
         clean = git-lfs clean -- %f
         smudge = git-lfs smudge -- %f
         process = git-lfs filter-process
         required = true
-[pull]
-        rebase = false
 
-[rebase]
-        updateRefs = true
-
-[init]
-        defaultBranch = main
+## Work-related stuff
 
 # Project overrides
 [includeIf "hasconfig:remote.*.url:git@github.com:versapay/**"]
