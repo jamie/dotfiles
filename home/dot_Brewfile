@@ -14,8 +14,9 @@ brew "mise"
 brew "rename"
 brew "ripgrep"
 brew "starship" # prompt
-brew "tmux"
 brew "tree"
+brew "zellij"
+
 cask "dash"
 # Via homebrew/cask-fonts
 cask "font-fira-code"
@@ -24,12 +25,12 @@ cask "font-victor-mono"
 cask "font-victor-mono-nerd-font"
 cask "fork"
 cask "ghostty"
-cask "insomnia"
 cask "p4v" # p4merge
 cask "utm" # virtual machine host
 # cask "virtualbox"
 cask "visual-studio-code"
 cask "warp"
+cask "yaak"
 cask "zed"
 
 # Common Ruby dependencies
