@@ -11,6 +11,7 @@ brew "hivemind"
 brew "gh"
 brew "lefthook" # Git hooks
 brew "mise"
+brew "ncdu" # ncurses tree-based disk usage
 brew "rename"
 brew "ripgrep"
 brew "starship" # prompt
@@ -39,7 +40,6 @@ brew "openssl"
 brew "readline"
 
 # Other
-brew "ncdu" # ncurses tree-based disk usage
 cask "1password"
 cask "acorn"
 # cask "arq" # Needs admin to install helpers, TODO: move separately
