@@ -82,6 +82,23 @@ function tabcolor_chpwd {
 add-zsh-hook chpwd tabcolor_chpwd
 tabcolor_chpwd
 
+# Auto-set zellij tab names based on pwd
+# https://www.reddit.com/r/zellij/comments/10skez0/does_zellij_support_changing_tabs_name_according/
+
+zellij_tab_name_update() {
+    if [[ -n $ZELLIJ ]]; then
+        local current_dir=$PWD
+        if [[ $current_dir == $HOME ]]; then
+            current_dir="~"
+        else
+            current_dir=${current_dir##*/}
+        fi
+        command nohup zellij action rename-tab $current_dir >/dev/null 2>&1
+    fi
+}
+chpwd_functions+=(zellij_tab_name_update)
+zellij_tab_name_update
+
 # Auto-set tabby/iterm2 tab names based on pwd
 function tabname_chpwd {
   echo -en "\033]0;${PWD/#$HOME/~}\a"
