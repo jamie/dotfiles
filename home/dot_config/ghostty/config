@@ -1,12 +1,2 @@
 # This is the configuration file for Ghostty.
 # https://ghostty.org/docs/config
-
-# Macos Opt as Alt, compatibility for zellij
-macos-option-as-alt = left
-keybind = alt+left=unbind
-keybind = alt+right=unbind
-
-# Cmd arrow for word jumps, replaces alt-arrows
-# Needs zellij specific config to manage esc:f defaulting to floating terminal
-keybind = super+left=esc:b
-keybind = super+right=esc:f
