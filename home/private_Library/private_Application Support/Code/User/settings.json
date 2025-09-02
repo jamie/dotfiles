@@ -1,0 +1,109 @@
+{
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "other": "off",
+            "strings": "off"
+        },
+        "editor.wordWrap": "off"
+    },
+    "[ruby]": {
+        "editor.defaultFormatter": "Shopify.ruby-lsp"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "DotJoshJohnson.xml"
+    },
+    "diffEditor.wordWrap": "off",
+    "dotfiles.repository": "jamie/dotfiles",
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.fontFamily": "VictorMono Nerd Font, Victor Mono, FiraCode Nerd Font, Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSaveMode": "file",
+    "editor.inlayHints.enabled": "off",
+    "editor.inlineSuggest.enabled": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        {
+            "color": "#612424",
+            "column": 78
+        },
+        {
+            "color": "#8b4343",
+            "column": 120
+        }
+    ],
+    "editor.stickyScroll.maxLineCount": 8,
+    "editor.tabSize": 2,
+    "editor.wordWrap": "off",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrder": "mixed",
+    "git.autofetch": true,
+    "git.autorefresh": false,
+    "git.confirmSync": false,
+    "git.openRepositoryInParentFolders": "never",
+    "github.copilot.enable": {
+        "*": true,
+        "markdown": false,
+        "plaintext": false,
+        "scminput": false
+    },
+    "gitlens.advanced.messages": {
+        "suppressGitMissingWarning": true,
+        "suppressGitVersionWarning": true
+    },
+    "gitlens.autolinks": [
+        {
+            "prefix": "CAR-",
+            "url": "https://versapayclientservices.atlassian.net/browse/CAR-<num>"
+        },
+        {
+            "prefix": "VPY",
+            "url": "https://versapayclientservices.atlassian.net/browse/VPY-<num>"
+        }
+    ],
+    "gitlens.blame.ignoreWhitespace": true,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.graph.minimap.additionalTypes": [
+        "stashes",
+        "localBranches"
+    ],
+    "graphviz-interactive-preview.renderLockAdditionalTimeout": -1,
+    "indentRainbow.colors": [
+        "rgba(255,255,64,0.1)",
+        "rgba(127,255,127,0.1)",
+        "rgba(255,127,255,0.1)",
+        "rgba(79,236,236,0.1)"
+    ],
+    "railsTestRunner.focusTerminal": false,
+    "remote.SSH.remotePlatform": {
+        "delta.local": "macOS"
+    },
+    "rubocop.autocorrect": false,
+    "rubocop.mode": "onlyRunGlobally",
+    "rubyLsp.customRubyCommand": "eval \"$(mise env -s zsh)\"",
+    "rubyLsp.formatter": "rubocop",
+    "rubyLsp.rubyVersionManager": {
+        "identifier": "custom",
+    },
+    "security.promptForLocalFileProtocolHandling": false,
+    "telemetry.telemetryLevel": "off",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.fontSize": 16,
+    "window.commandCenter": true,
+    "window.title": "${activeEditorMedium}${separator}${rootName}",
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#1073cf2d",
+        "editor.lineHighlightBorder": "#9fced11f"
+    },
+    "workbench.colorTheme": "Default Light+",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.preferredDarkColorTheme": "Solarized Light",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "workbench.startupEditor": "newUntitledFile",
+    "chat.agent.enabled": true
+}
