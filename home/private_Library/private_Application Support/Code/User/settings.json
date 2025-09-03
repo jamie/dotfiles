@@ -1,4 +1,8 @@
 {
+    "[erb]": {
+        "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+        "editor.formatOnSave": true
+    },
     "[markdown]": {
         "editor.quickSuggestions": {
             "comments": "off",
@@ -13,6 +17,13 @@
     "[xml]": {
         "editor.defaultFormatter": "DotJoshJohnson.xml"
     },
+    "atomKeymap.promptV3Features": true,
+    "betterOpenEditors.InsertSpaceForLastSlug": true,
+    "betterOpenEditors.PackagePatterns": "**/*",
+    "blockman.n01LineHeight": 0,
+    "blockman.n03MaxDepth": -1,
+    "blockman.n04ColorComboPreset": "Classic Light (Gradients)",
+    "chat.agent.enabled": true,
     "diffEditor.wordWrap": "off",
     "dotfiles.repository": "jamie/dotfiles",
     "editor.acceptSuggestionOnEnter": "off",
@@ -21,6 +32,9 @@
     "editor.fontSize": 16,
     "editor.formatOnPaste": false,
     "editor.formatOnSaveMode": "file",
+    "editor.guides.bracketPairs": false,
+    "editor.guides.highlightActiveIndentation": false,
+    "editor.guides.indentation": false,
     "editor.inlayHints.enabled": "off",
     "editor.inlineSuggest.enabled": true,
     "editor.multiCursorModifier": "ctrlCmd",
@@ -41,6 +55,10 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.sortOrder": "mixed",
+    "files.associations": {
+        "*.erb": "html",
+        "*.html.erb": "erb"
+    },
     "git.autofetch": true,
     "git.autorefresh": false,
     "git.confirmSync": false,
@@ -78,24 +96,29 @@
         "rgba(255,127,255,0.1)",
         "rgba(79,236,236,0.1)"
     ],
+    "liveshare.authenticationProvider": "GitHub",
     "railsTestRunner.focusTerminal": false,
     "remote.SSH.remotePlatform": {
         "delta.local": "macOS"
     },
     "rubocop.autocorrect": false,
-    "rubocop.mode": "onlyRunGlobally",
+    "rubocop.mode": "enableViaGemfile",
+    "ruby.intellisense": "rubyLocate",
+    "ruby.rubocop.onSave": false,
+    "ruby.rubocop.suppressRubocopWarnings": true,
     "rubyLsp.customRubyCommand": "eval \"$(mise env -s zsh)\"",
     "rubyLsp.formatter": "rubocop",
     "rubyLsp.rubyVersionManager": {
-        "identifier": "custom",
+        "identifier": "custom"
     },
     "security.promptForLocalFileProtocolHandling": false,
+    "standardRuby.mode": "enableUnconditionally",
     "telemetry.telemetryLevel": "off",
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.fontSize": 16,
-    "window.commandCenter": true,
     "window.title": "${activeEditorMedium}${separator}${rootName}",
+    "window.zoomLevel": 1,
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f"
@@ -104,6 +127,5 @@
     "workbench.editor.empty.hint": "hidden",
     "workbench.preferredDarkColorTheme": "Solarized Light",
     "workbench.preferredLightColorTheme": "Solarized Light",
-    "workbench.startupEditor": "newUntitledFile",
-    "chat.agent.enabled": true
+    "workbench.startupEditor": "newUntitledFile"
 }
