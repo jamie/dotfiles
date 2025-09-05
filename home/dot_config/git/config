@@ -137,7 +137,3 @@
 # Project overrides
 [includeIf "hasconfig:remote.*.url:https://github.com/versapay/*"]
         path = ~/.config/git/versapay
-[includeIf "hasconfig:remote.*.url:git@github.com:versapay/**"]
-        path = ~/.config/git/versapay
-[includeIf "hasconfig:remote.*.url:git@github.com:versapay-old/**"]
-        path = ~/.config/git/versapay
