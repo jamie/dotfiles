@@ -87,18 +87,20 @@
 
 ## Diff/Merge/Rebase
 
+[core]
+        pager = delta
+[delta]
+        navigate = true
+        line-numbers = true
 [diff]
         algorithm = histogram
         colorMoved = plain # true
         mnemonicPrefix = true
         renames = copies
-        tool = difftastic
 [diff "plist"]
         textconv = "plutil -convert xml1 -o -"
-[difftool]
-        prompt = false
-[difftool "difftastic"]
-        cmd = difft --display inline "$LOCAL" "$REMOTE"
+[interactive]
+        diffFilter = delta --color-only
 [merge]
         conflictstyle = zdiff3
         tool = myp4merge

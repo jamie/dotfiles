@@ -3,7 +3,7 @@ cask_args appdir: "~/Applications"
 # Programming
 brew "chezmoi"
 brew "croc" # Point-to-point file transfer, schollz/tap
-brew "difftastic"
+brew "delta"
 brew "fzf"
 brew "git"
 brew "gpg"
