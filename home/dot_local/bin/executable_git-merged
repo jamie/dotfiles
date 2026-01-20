@@ -11,7 +11,9 @@ source = `git-current-branch`.chomp if ARGV[0] == 'HEAD'
 
 branches = `git branch`.split("\n")
 
-branches.map!{|e| e.match(/[^* ]+/)[0] }
+# * checked out here
+# + checked out in worktree
+branches.map!{|e| e.match(/[^*+ ]+/)[0] }
 
 # ignore important branches
 branches.reject!{|branch|
